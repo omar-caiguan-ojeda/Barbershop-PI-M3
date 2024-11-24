@@ -1,17 +1,22 @@
-// routes/appointmentRouter.ts
+// src/routes/appointmentRouter.ts
 
-import { Router, Request, Response } from "express"
+import { Router, Request, Response, NextFunction } from "express"
 import { AppointmentRegisterDTO } from "../dtos/AppointmentDTO"
-import { getAppointmentsController, getAppointmentByIdController, registerAppointmentController,cancelStatusAppointmentController } from "../controllers/appointmentControllers"
+import appointmentControllers from "../controllers/appointmentControllers"
+import { validateAppointmentRegisterData } from "../middlewares"
 
 const appointmentRouter: Router = Router()
 
-appointmentRouter.get("/", (req: Request, res: Response) => getAppointmentsController(req, res))
+appointmentRouter.get("/", (req: Request, res: Response, next: NextFunction) => appointmentControllers.getAppointmentsController(req, res, next))
 
-appointmentRouter.get("/:id", (req: Request<{ id: string }>, res: Response) => getAppointmentByIdController(req, res))
+appointmentRouter.get("/:id", (req: Request<{ id: string }>, res: Response, next: NextFunction) => appointmentControllers.getAppointmentByIdController(req, res, next))
 
-appointmentRouter.post("/schedule", (req: Request< unknown, unknown, AppointmentRegisterDTO >, res: Response) => registerAppointmentController(req, res))
+appointmentRouter.post("/schedule", 
+    (req: Request, res: Response, next: NextFunction) => validateAppointmentRegisterData(req, res, next),
+    (req: Request<unknown, unknown, AppointmentRegisterDTO>, res: Response, next: NextFunction) => appointmentControllers.registerAppointmentController(req,res, next))
 
-appointmentRouter.put("/cancel/:id", (req: Request<{ id: string }>, res: Response) => cancelStatusAppointmentController(req, res))
+appointmentRouter.put("/cancel/:id", (req: Request<{ id: string }>, res: Response, next: NextFunction) => appointmentControllers.cancelStatusAppointmentController(req, res, next))
 
 export default appointmentRouter
+
+//////////////////////////////////////////////////////
