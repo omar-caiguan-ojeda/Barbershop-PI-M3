@@ -1,0 +1,44 @@
+/* src/views/MyAppointments/MyAppointments.module.css */
+
+/* Contenedor principal */
+.contenedor {
+    background: linear-gradient(135deg, #1c1c1c, #2a2a2a); /* Fondo oscuro */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    max-width: 1200px;
+    margin: 20px auto;
+    color: #fff; /* Letras blancas */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilo para el encabezado */
+.contenedorH1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contenedorH1 h1 {
+    font-size: 2.5rem;
+    color: #b0e0e6; /* Azul claro */
+    border-bottom: 2px solid #fff;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* Contenedor de las tarjetas */
+.containerAppointments {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 10px;
+    align-items: start;
+}
+
+/* Mensaje cuando no hay turnos */
+.noAppointments {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #cd5c5c; /* Rojo suave */
+    margin-top: 20px;
+}

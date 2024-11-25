@@ -1,0 +1,71 @@
+/* src/components/Appointment/Appointment.module.css */
+
+.appointmentCard {
+    background: linear-gradient(135deg, #2a2a2a, #3e3e3e); /* Fondo estilo barbería clásica */
+    color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid #b22234; /* Detalle rojo al estilo barbería */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.appointmentCard:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.appointmentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.appointmentHeader h3 {
+    font-family: 'Georgia', serif; /* Letra elegante */
+    color: #b0e0e6; /* Azul claro para contraste */
+}
+
+.statusActive {
+    background-color: #3cb371; /* Verde para "Activo" */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.statusInactive {
+    background-color: #cd5c5c; /* Rojo para "Inactivo" */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.appointmentDetails {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.appointmentDetails strong {
+    color: #fff; /* Letras blancas */
+}
+
+.appointmentDetails p {
+    margin: 5px 0;
+}
+
+.appointmentCard::before {
+    content: '';
+    display: block;
+    height: 5px;
+    width: 100%;
+    background: repeating-linear-gradient(45deg, #fff, #fff 10px, #b22234 10px, #b22234 20px);
+    border-radius: 5px 5px 0 0; /* Bordes redondeados superiores */
+    margin-bottom: 10px;
+}
