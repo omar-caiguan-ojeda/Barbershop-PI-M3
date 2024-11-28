@@ -1,5 +1,3 @@
-// src/config/data.source.ts
-
 import { DataSource, Repository } from "typeorm";
 import { DB_NAME, DB_DROP, DB_ENTITIES, DB_HOST, DB_LOGGING, DB_PASSWORD, DB_PORT, DB_SYNC, DB_TYPE, DB_USERNAME } from "./env";
 import { User } from "../entities/User.entity";
@@ -20,5 +18,3 @@ export const AppDataSource = new DataSource({
 
 export const UserModel: Repository<User> = AppDataSource.getRepository(User)
 export const CredentialModel: Repository<Credential> = AppDataSource.getRepository(Credential)
-
-//////////////////////////////////////////////////////

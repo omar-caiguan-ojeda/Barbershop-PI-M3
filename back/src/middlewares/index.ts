@@ -1,5 +1,3 @@
-// scr/middlewares/index.ts
-
 import { NextFunction, Request, Response } from "express";
 
 export const validateUserResgisterData = (req: Request, res: Response, next: NextFunction): void => {
@@ -26,5 +24,3 @@ export const validateAppointmentRegisterData = (req: Request, res: Response, nex
         })
     } else next()
 }
-
-//////////////////////////////////////////////////////

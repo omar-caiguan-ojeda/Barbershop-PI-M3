@@ -1,10 +1,8 @@
-// src/entities/User.entity.ts
-
 import { Column, CreateDateColumn, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
 import { Credential } from "./Credentials.entity"
 import { Appointment } from "./Appointment.entity"
 
-@Entity("users")    //({ name: "users" })
+@Entity("users")    
 export class User{
 
     @PrimaryGeneratedColumn()
@@ -35,5 +33,3 @@ export class User{
     @OneToMany(() => Appointment, appointment => appointment.user)
     appointment: Appointment[]
 }
-
-//////////////////////////////////////////////////////

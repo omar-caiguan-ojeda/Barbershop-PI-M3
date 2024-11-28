@@ -1,49 +1,30 @@
 /* src/views/Home/Home.module.css */
-
-/* Estilo general para la página */
 .homeContainer {
-    background: linear-gradient(135deg, #1a1a1a, #2a2a2a); /* Fondo oscuro clásico */
-    color: #fff; /* Texto blanco */
-    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2c2c2c;
+    color: #fff;
     padding: 20px;
-    margin: 0 auto;
-    max-width: 1200px;
+    min-height: 100vh;
 }
 
-/* Encabezado */
 .header {
     text-align: center;
-    margin-bottom: 40px;
-    border-bottom: 5px solid #b22234; /* Línea estilo barbería */
-    padding-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .title {
-    font-size: 3rem;
-    color: #b0e0e6; /* Azul claro */
+    font-size: 2.5rem;
     font-family: 'Georgia', serif;
-    margin-bottom: 10px;
+    color: #e0ac69;
 }
 
 .headerImage {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
-}
-
-/* Sección de citas */
-.appointmentsSection {
-    margin-top: 40px;
-}
-
-.sectionTitle {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #fff;
-    border-bottom: 2px solid #b0e0e6; /* Línea decorativa */
-    display: inline-block;
-    padding-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
 }

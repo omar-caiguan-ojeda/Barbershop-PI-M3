@@ -1,5 +1,3 @@
-// src/controllers/appointmentControllers.ts
-
 import { Request, Response } from "express"
 import { AppointmentRegisterDTO } from "../dtos/AppointmentDTO"
 import { cancelStatusAppointmentService, getAppointmentByIdService, getAppointmentService, registerAppointmentService } from "../services/appointmentServices"
@@ -48,5 +46,3 @@ const appointmentControllers = {
 }
 
 export default appointmentControllers
-
-//////////////////////////////////////////////////////

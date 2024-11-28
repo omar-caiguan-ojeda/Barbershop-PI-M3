@@ -1,5 +1,3 @@
-// src/services/userServices.ts
-
 import { AppDataSource, UserModel } from "../config/data.source";
 import { UserDTO, UserLoginDTO, UserLoginSuccesDTO, UserRegisterDTO } from "../dtos/UserDTO";
 import { Credential } from "../entities/Credentials.entity";
@@ -21,7 +19,7 @@ export const getUserByIdService = async (id: string): Promise<UserDTO> => {
         },
         relations: ["appointment"]
     })
-    if(!userFound) throw new CustomError(404, `El usuario con id ${id} no existe`)
+    if(!userFound) throw new CustomError(404, `El usuario con id: ${id}, no existe`)
     else return  userFound
 }
 
@@ -61,5 +59,3 @@ export const loginUserService = async (user: UserLoginDTO): Promise<UserLoginSuc
         }
     }
 }
-
-//////////////////////////////////////////////////////

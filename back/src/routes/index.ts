@@ -1,5 +1,3 @@
-// src/routes/index.ts
-
 import { Router } from "express"
 import userRouter from "./userRouter"
 import appointmentRouter from "./appointmentRouter"
@@ -11,5 +9,3 @@ router.use("/appointments", appointmentRouter)
 
 
 export default router
-
-//////////////////////////////////////////////////////

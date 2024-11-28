@@ -1,5 +1,3 @@
-// src/dtos/UserDTO.ts
-
 export interface UserRegisterDTO {
     name: string
     email: string
@@ -26,5 +24,3 @@ export interface UserLoginSuccesDTO {
     login: boolean,
     user: UserDTO
 }
-
-//////////////////////////////////////////////////////

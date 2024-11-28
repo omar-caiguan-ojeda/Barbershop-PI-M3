@@ -1,0 +1,40 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: #f8f9fa; /* Color de fondo claro */
+    font-family: 'Arial', sans-serif; /* Fuente simple y profesional */
+    padding: 20px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+  }
+  
+  .title {
+    font-size: 6rem; /* Tamaño grande para resaltar el error */
+    color: #ff6b6b; /* Rojo vibrante para el mensaje 404 */
+    margin: 0; /* Sin márgenes extra */
+  }
+  
+  .messsage {
+    font-size: 1.5rem; /* Texto descriptivo */
+    color: #6c757d; /* Gris suave */
+    margin: 20px 0; /* Espaciado con el título y el botón */
+  }
+  
+  .homeButton {
+    font-size: 1.2rem; /* Tamaño del texto del botón */
+    color: white; /* Texto blanco */
+    background-color: #007bff; /* Azul llamativo */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Esquinas redondeadas */
+    text-decoration: none; /* Elimina el subrayado */
+    transition: background-color 0.3s ease; /* Animación suave al pasar el mouse */
+  }
+  
+  .homeButton:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+  }
+  

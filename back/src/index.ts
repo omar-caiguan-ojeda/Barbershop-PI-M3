@@ -1,5 +1,3 @@
-//index.ts
-
 import { AppDataSource } from "./config/data.source"
 import { PORT } from "./config/env"
 import server from "./server"
@@ -16,5 +14,3 @@ AppDataSource.initialize()
     .catch((err) => {
         console.log(err)
     })
-
-//////////////////////////////////////////////////////

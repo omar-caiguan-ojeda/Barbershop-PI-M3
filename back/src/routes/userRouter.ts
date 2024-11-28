@@ -1,5 +1,3 @@
-// src/routes/userRouter.ts
-
 import { Router, Request, Response, NextFunction } from "express"
 import userControllers from "../controllers/usersControllers"
 import { UserRegisterDTO, UserLoginDTO } from "../dtos/UserDTO"
@@ -18,5 +16,3 @@ userRouter.post("/register",
 userRouter.post("/login", (req: Request< unknown, unknown, UserLoginDTO >, res: Response, next: NextFunction) => userControllers.loginUserController(req, res, next))
 
 export default userRouter
-
-//////////////////////////////////////////////////////

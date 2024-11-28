@@ -1,38 +1,42 @@
-// src/services/credentialServices.ts
+import { EntityManager } from "typeorm";
+import { Credential } from "../entities/Credentials.entity";
+import { CredentialModel } from "../config/data.source";
+import { CustomError } from "../utils/customError";
+import bcrypt from "bcrypt";
 
-import { EntityManager } from "typeorm"
-import { Credential } from "../entities/Credentials.entity"
-import { CredentialModel } from "../config/data.source"
-import { CustomError } from "../utils/customError"
+// Función para encriptar contraseñas
+const hashPassword = async (password: string): Promise<string> => {
+    const saltRounds = 10; // Número de rondas para generar el salt
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    return hashedPassword;
+};
 
-const cryPass = async (password: string): Promise<string> => {
-    const encoder = new TextEncoder() 
-    const data = encoder.encode(password)
-    const hash = await crypto.subtle.digest("SHA-256", data)
-    const hashArray = Array.from(new Uint8Array(hash))
-    const passCrypt = hashArray.map( b => b.toString(16).padStart(2, "0")).join("")
-    return passCrypt
-}
+// Función para comparar contraseñas
+const comparePassword = async (password: string, hashedPassword: string): Promise<boolean> => {
+    return await bcrypt.compare(password, hashedPassword);
+};
 
-export const createCredentialService: (entityManager: EntityManager, a: string, b:string) => Promise<Credential> = async (entityManager: EntityManager, username: string, password: string): Promise<Credential> => {
-    const passwordEncripted: string = await cryPass(password)
-    const credentials: Credential =entityManager.create(Credential, {
+export const createCredentialService: (
+    entityManager: EntityManager,
+    username: string,
+    password: string
+) => Promise<Credential> = async (entityManager: EntityManager, username: string, password: string): Promise<Credential> => {
+    const passwordEncrypted: string = await hashPassword(password);
+    const credentials: Credential = entityManager.create(Credential, {
         username,
-        password: passwordEncripted
-    })
-    return await entityManager.save(credentials)
-}
+        password: passwordEncrypted,
+    });
+    return await entityManager.save(credentials);
+};
 
 export const checkCredentials = async (username: string, password: string): Promise<number | undefined> => {
     const usernameFound: Credential | null = await CredentialModel.findOne({
         where: {
-            username: username
-        }
-    })
-    const cryPassword: string = await cryPass(password)
-    if (!usernameFound) throw new CustomError(400, `El usuario ${username} no fué encontrado`)
-    if (usernameFound.password !== cryPassword) throw new CustomError(400, `Usuario o contraseña incorrecta`)
-    else return usernameFound.id
-}
-
-//////////////////////////////////////////////////////
+            username: username,
+        },
+    });
+    if (!usernameFound) throw new CustomError(400, `El usuario ${username} no fue encontrado`);
+    const isPasswordValid = await comparePassword(password, usernameFound.password);
+    if (!isPasswordValid) throw new CustomError(400, `Usuario o contraseña incorrecta`);
+    else return usernameFound.id;
+};

@@ -1,5 +1,3 @@
-// src/interfaces/UserInterfaces.ts
-
 export interface User {
     id: number
     name: string
@@ -8,5 +6,3 @@ export interface User {
     nDni: number
     credentialsId: number
 }
-
-//////////////////////////////////////////////////////

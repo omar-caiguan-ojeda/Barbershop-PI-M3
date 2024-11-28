@@ -1,5 +1,3 @@
-// src/entities/Credentials.Entity.ts
-
 import { Column, CreateDateColumn, Entity, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { User } from "./User.entity";
 
@@ -26,5 +24,3 @@ export class Credential{
     user: User
 
 }
-
-//////////////////////////////////////////////////////

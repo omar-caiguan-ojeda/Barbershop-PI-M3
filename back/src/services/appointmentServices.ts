@@ -1,5 +1,3 @@
-// src/services/appointmentServices.ts
-
 import { AppointmentRegisterDTO } from "../dtos/AppointmentDTO";
 import { Appointment } from "../entities/Appointment.entity";
 import { Status } from "../interfaces/AppointmentInterface";
@@ -32,7 +30,7 @@ export const getAppointmentByIdService = async (id: string): Promise<Appointment
             id: parseInt(id, 10)
         }
     })
-    if (!appointmentFound) throw new Error(`La cita con id: ${id}, no fué encontrada`)
+    if (!appointmentFound) throw new CustomError(404, `La cita con id: ${id}, no fué encontrada`)
     else return appointmentFound
 }
 
@@ -42,9 +40,7 @@ export const cancelStatusAppointmentService = async (id: string): Promise<Appoin
             id: parseInt(id, 10)
         }
     })
-    if (!appointmentFound) throw new Error (`La cita con id: ${id}, no fué encontrada`)
+    if (!appointmentFound) throw new CustomError (404, `La cita con id: ${id}, no fué encontrada`)
     appointmentFound.status = Status.Cancelled
     return await AppointmentRepository.save(appointmentFound) 
 }
-
-//////////////////////////////////////////////////////

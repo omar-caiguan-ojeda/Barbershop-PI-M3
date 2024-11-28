@@ -1,5 +1,3 @@
-// server.ts
-
 import express, { Application, NextFunction, Request, Response } from "express"
 import morgan from "morgan"
 import cors from "cors"
@@ -30,5 +28,3 @@ server.use((err: unknown, req: Request, res: Response, next: NextFunction) => {
 })
 
 export default server
-
-//////////////////////////////////////////////////////
