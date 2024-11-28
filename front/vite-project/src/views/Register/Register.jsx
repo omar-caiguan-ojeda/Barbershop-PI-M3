@@ -3,14 +3,15 @@ import { registerFormValidation } from "../../helpers/registerValidates";
 import styles from "./Register.module.css"
 import axios from "axios";
 import Swal from 'sweetalert2';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UsersContext } from "../../context/UserContext";
 
 
 
 const Register = () => {
-    
+    const navigate = useNavigate()
+
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -37,7 +38,9 @@ const Register = () => {
                             text: 'Gracias por registrarte',
                             icon: 'success',
                             confirmButtonText: 'Aceptar',
-                        })
+                        }).then(() => {
+                            navigate("/login");
+                        });
                     }
                 })
                 .catch((err) => {
