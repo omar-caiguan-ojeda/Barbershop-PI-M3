@@ -74,3 +74,24 @@
 .link:hover {
   text-decoration: underline;
 }
+
+/* Estilo general para el pie de formulario */
+.formFooter {
+  font-size: 0.9rem; /* Tamaño de letra moderado */
+  color: #e0e0e0; /* Texto gris claro */
+  text-align: center; /* Centrado */
+  margin-top: 1.5rem; /* Espaciado superior */
+}
+
+/* Estilo específico para los enlaces */
+.formFooterLink {
+  color: #4a90e2; /* Azul claro */
+  text-decoration: none; /* Sin subrayado */
+  font-weight: bold; /* Texto destacado */
+  transition: color 0.3s ease; /* Animación suave */
+}
+
+.formFooterLink:hover {
+  color: #73b3f5; /* Azul más claro al hover */
+  text-decoration: underline; /* Subrayado para accesibilidad */
+}

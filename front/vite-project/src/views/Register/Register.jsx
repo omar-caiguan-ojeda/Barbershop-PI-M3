@@ -165,8 +165,9 @@ const Register = () => {
             >Registrar</button>
             
             <br />
-                <label>
-                    Ya tienes una cuenta? <Link to="/login">Iniciar Sesión</Link>
+                <label className={styles.formFooter}>
+                    Ya tienes una cuenta?   
+                    <Link to="/login" className={styles.formFooterLink}>Iniciar Sesión</Link>
                 </label>    
 
         </form>
