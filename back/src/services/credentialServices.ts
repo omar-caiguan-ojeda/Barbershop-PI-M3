@@ -11,7 +11,7 @@ const hashPassword = async (password: string): Promise<string> => {
     return hashedPassword;
 };
 
-// Función para comparar contraseñas
+// Función para comparar contraseñas generadas.
 const comparePassword = async (password: string, hashedPassword: string): Promise<boolean> => {
     return await bcrypt.compare(password, hashedPassword);
 };
