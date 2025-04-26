@@ -8,6 +8,7 @@ function AllAppointments() {
     const [appointments, setAppointments] = useState([]);
     const navigate = useNavigate();
     const userId = localStorage.getItem("user_Id");
+    const userName = localStorage.getItem("user_name") || "Usuario";
 
     useEffect(() => {
         if (userId) {
@@ -33,7 +34,9 @@ function AllAppointments() {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <h1>Mis Turnos</h1>
+                <div className="barberPole" />
+                <h1 className={styles.userTitle}>{userName.toUpperCase()}</h1>
+                <h2 className={styles.subTitle}>Aquí podrás gestionar tus turnos:</h2>
             </div>
             <div className={styles.appointmentsContainer}>
                 {appointments.length > 0 ? (

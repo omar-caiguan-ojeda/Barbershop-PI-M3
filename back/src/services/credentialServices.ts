@@ -18,24 +18,24 @@ const comparePassword = async (password: string, hashedPassword: string): Promis
 
 export const createCredentialService: (
     entityManager: EntityManager,
-    username: string,
+    email: string,
     password: string
-) => Promise<Credential> = async (entityManager: EntityManager, username: string, password: string): Promise<Credential> => {
+) => Promise<Credential> = async (entityManager: EntityManager, email: string, password: string): Promise<Credential> => {
     const passwordEncrypted: string = await hashPassword(password);
     const credentials: Credential = entityManager.create(Credential, {
-        username,
+        username: email, // Guardar email como username
         password: passwordEncrypted,
     });
     return await entityManager.save(credentials);
 };
 
-export const checkCredentials = async (username: string, password: string): Promise<number | undefined> => {
+export const checkCredentials = async (email: string, password: string): Promise<number | undefined> => {
     const usernameFound: Credential | null = await CredentialModel.findOne({
         where: {
-            username: username,
+            username: email, // Buscar por email
         },
     });
-    if (!usernameFound) throw new CustomError(400, `El usuario ${username} no fue encontrado`);
+    if (!usernameFound) throw new CustomError(400, `El usuario ${email} no fue encontrado`);
     const isPasswordValid = await comparePassword(password, usernameFound.password);
     if (!isPasswordValid) throw new CustomError(400, `Usuario o contraseña incorrecta`);
     else return usernameFound.id;

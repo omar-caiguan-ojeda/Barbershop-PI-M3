@@ -9,6 +9,11 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border: 2px solid #b22234; /* Detalle rojo al estilo barbería */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 270px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .appointmentCard:hover {

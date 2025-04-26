@@ -11,13 +11,11 @@ const getUserController = async (req: Request, res: Response): Promise<void> => 
         })
 }
 
-
 const getUserByIdController = async (req: Request< { id: string } >, res: Response): Promise<void> => {
     const { id } = req.params
         const response = await getUserByIdService(id)
         res.status(200).json(response)
 }
-
 
 const registerUserController =  async (req: Request< unknown, unknown, UserRegisterDTO >, res: Response): Promise<void> => {  
         await registerUserService(req.body)
@@ -26,10 +24,9 @@ const registerUserController =  async (req: Request< unknown, unknown, UserRegis
         })
 }
 
-
-const loginUserController = async (req: Request< unknown, unknown, UserLoginDTO >, res: Response): Promise<void> => {
-        const response: UserLoginSuccesDTO | null = await loginUserService(req.body)
-        res.status(200).json(response)  
+const loginUserController = async (req: Request<unknown, unknown, UserLoginDTO>, res: Response): Promise<void> => {
+    const response: UserLoginSuccesDTO | null = await loginUserService(req.body)
+    res.status(200).json(response)  
 }
 
 const userControllers = {

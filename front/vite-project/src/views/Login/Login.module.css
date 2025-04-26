@@ -74,3 +74,41 @@
 .link:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 700px) {
+  .formContainer {
+    max-width: 97vw;
+    padding: 16px 4vw 20px 4vw;
+    border-radius: 8px;
+  }
+  .formTitle {
+    font-size: 1.2rem;
+  }
+  .formGroup {
+    margin-bottom: 10px;
+  }
+  .formLabel {
+    font-size: 0.98rem;
+  }
+  .formInput {
+    font-size: 0.97rem;
+    padding: 8px;
+  }
+  .formButton {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .formContainer {
+    padding: 8px 2vw 12px 2vw;
+    border-radius: 6px;
+  }
+  .formTitle {
+    font-size: 1.05rem;
+  }
+  .formLabel {
+    font-size: 0.92rem;
+  }
+}

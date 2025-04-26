@@ -3,12 +3,12 @@ export interface UserRegisterDTO {
     email: string
     birthdate: Date
     nDni: number
-    username: string
     password: string
+    confirmPassword: string
 }
 
 export interface UserLoginDTO {
-    username: string
+    email: string
     password: string
 }
 
